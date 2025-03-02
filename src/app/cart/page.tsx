@@ -26,7 +26,7 @@ const CartPage = () => {
               </div>
             : <div className='text-center min-h-[calc(100vh-12.4rem)] max-w-md grid place-content-center mx-auto gap-6'>
               <p className='text-lg text-gray-600'>Your shopping cart is currently empty. Browse our collection and add your favorite items to the cart.</p>
-              <Link href='/shop' className='bg-purple-600 hover:bg-purple-500 px-6 py-2.5 text-white font-medium w-full rounded-sm'>Go to Shop</Link>
+              <Link href='/shop' className='bg-orange-600 hover:bg-orange-500 px-6 py-2.5 text-white font-medium w-full rounded-lg'>Go to Shop</Link>
               </div>
           }
         </div>
