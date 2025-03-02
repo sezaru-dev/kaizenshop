@@ -1,27 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+body{
+  @apply font-montserrat
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.loader {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  --c:no-repeat linear-gradient(#1b1a1b 0 0);
+  background:
+    var(--c) center/100% 10px,
+    var(--c) center/10px 100%;
+}
+.loader:before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background:
+    var(--c) 0    0,
+    var(--c) 100% 0,
+    var(--c) 0    100%,
+    var(--c) 100% 100%;
+  background-size: 15.5px 15.5px;
+  animation: l16 1.2s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l16 {
+   33%  {inset:-10px;transform: rotate(0deg)}
+   66%  {inset:-10px;transform: rotate(90deg)}
+   100% {inset:0    ;transform: rotate(90deg)}
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}

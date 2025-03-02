@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import scrollbarHide from 'tailwind-scrollbar-hide'
+const plugin = require('tailwindcss/plugin');
 
 const config: Config = {
   content: [
@@ -9,11 +11,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'montserrat': ['Montserrat', 'sans-serif'],
+      },
+      animation: {
+        "loop-scroll": "loop-scroll 60s linear infinite"
+      },
+      keyframes: {
+        "loop-scroll": {
+          from: {transform: "translateX(0)"},
+          to: {transform: "translateX(-110%)"}
+        }
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    /* hide the input:number increment & decrement btn */
+    plugin(function ({ addBase }: { addBase: (styles: { [key: string]: any }) => void }) {
+      addBase({
+        'input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button': {
+          '-webkit-appearance': 'none',
+          'margin': '0',
+        },
+        'input[type=number]': {
+          '-moz-appearance': 'textfield',
+        },
+      });
+    }),
+    scrollbarHide
+  ],
 };
 export default config;
