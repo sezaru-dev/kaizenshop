@@ -34,7 +34,7 @@ export default function Home() {
             <h2 className="text-4xl lg:text-7xl font-extrabold lg:w-[40rem] text-white/90 text-center lg:text-left">Step into the Future with KaizenShop</h2>
             <h3 className="lg:text-xl lg:w-[32rem] text-white/80 mt-5 lg:mt-8 text-center lg:text-left">Find the Latest Innovations in Tech, Luxurious and Handcrafted Jewelry, and Fashion-Forward Clothing All in One Convenient Place</h3>  
             <Button className="mt-6 lg:mt-8 py-2.5 lg:py-3 px-4 lg:px-12 bg-orange-600 rounded-lg font-bold text-white w-full lg:w-auto">
-            Shop Now
+            Login to shop
             </Button>
           </div>
 
@@ -89,14 +89,14 @@ export default function Home() {
       <div className="container lg:max-w-[1280px] mx-auto px-6">
         <h2 className="text-3xl font-extrabold text-gray-800 text-center">Featured Products</h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-10">
 
         {
           electronics? 
           electronics.map(product => (
             <div  key={product.id} className="w-full p-4">
                       <div className='group'>
-                        <div className="relative overflow-hidden rounded-lg w-full h-52">
+                        <div className="relative overflow-hidden rounded-lg w-full h-32 md:h-52">
                           <div className='absolute top-0 left-0 z-10 opacity-0 group-hover:opacity-100 bg-black/20 w-full h-full grid place-content-center text-white font-bold'>
                             <Button
                               onClick={() =>
