@@ -52,6 +52,7 @@ const Shop: React.FC<Props> = ({ params }) => {
   const handleOpenModal = () => {
     if (childRef.current) {
       childRef.current.openModal();
+      document.body.classList.add('no-scroll');
     }
   };
 
