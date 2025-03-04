@@ -1,5 +1,6 @@
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 import ProductDetails from './ProductDetails';
+import { ProductType } from '@/store/fetch-products-store';
 
 async function fetchProductDetails(productId: string) {
   const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -16,6 +17,16 @@ export async function generateMetadata({ params }: { params: { productId: string
     title: `${product.title}`,
     description: `Explore the details of ${product.title} in our shop`,
   };
+}
+
+// Function to generate static params for dynamic route
+export async function generateStaticParams() {
+  const response = await fetch('https://fakestoreapi.com/products');
+  const products: ProductType[] = await response.json();
+
+  return products.map((product: ProductType) => ({
+    productId: product.id.toString(),
+  }));
 }
 
 const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {

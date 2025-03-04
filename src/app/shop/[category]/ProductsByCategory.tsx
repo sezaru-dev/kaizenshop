@@ -77,10 +77,10 @@ const ProductByCategory: React.FC<Props> = ({ params }) => {
                   <Link href={`/shop/jewelery${sortBy ? `?sortBy=${sortBy}`:''}`}>Jewelery</Link>
                 </li>
                 <li className={`${decodeURIComponent(category) === "men's clothing" ? 'font-bold' : ''}`}>
-                  <Link href={`/shop/men's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Men's Clothing</Link>
+                  <Link href={`/shop/men's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Men&apos;s Clothing</Link>
                 </li>
                 <li className={`${decodeURIComponent(category) === "women's clothing" ? 'font-bold' : ''}`}>
-                  <Link href={`/shop/women's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Women's Clothing</Link>
+                  <Link href={`/shop/women's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Women&apos;s Clothing</Link>
                 </li>
               </ul>
             </div>

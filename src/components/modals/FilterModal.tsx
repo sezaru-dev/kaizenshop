@@ -9,7 +9,7 @@ interface FilterModalProps  {
   params: { category: string };
 };
 
-const FilterModal = forwardRef(({ params }:FilterModalProps, ref) => {
+const FilterModal = forwardRef(({ params }: FilterModalProps, ref) => {
   const [isHidden, setIsHidden] = useState(true);
   const [category, setCategory] = useState(params.category || 'all');
   const [sort, setSort] = useState('');
@@ -43,12 +43,11 @@ const FilterModal = forwardRef(({ params }:FilterModalProps, ref) => {
 
   useEffect(() => {
     setSort(sortBy);
-    console.log(category);
   }, [sortBy]);
 
   return (
     <div className={`${isHidden && 'hidden'} md:hidden`}>
-      <div className='fixed top-0 left-0 w-full h-screen bg-black/30' onClick={hideModal}/>
+      <div className='fixed top-0 left-0 w-full h-screen bg-black/30' onClick={hideModal} />
       <div className='fixed top-[76px] left-0 z-10 px-6 py-6 bg-white w-full rounded-md'>
         <div className='flex items-center justify-between mb-4'>
           <h5 className='font-medium text-gray-800'>Filter</h5>
@@ -76,11 +75,11 @@ const FilterModal = forwardRef(({ params }:FilterModalProps, ref) => {
             <input type='radio' name='category' id='jewelery' onChange={() => categoryHandler('jewelery')} hidden />
           </div>
           <div className='py-1.5 w-full'>
-            <label htmlFor='mensclothing' className={`${decodeURIComponent(category) === "men's clothing" ? 'font-bold' : ''} cursor-pointer`}>Men's Clothing</label>
+            <label htmlFor='mensclothing' className={`${decodeURIComponent(category) === "men's clothing" ? 'font-bold' : ''} cursor-pointer`}>Men&apos;s Clothing</label>
             <input type='radio' name='category' id='mensclothing' onChange={() => categoryHandler("men's clothing")} hidden />
           </div>
           <div className='py-1.5 w-full'>
-            <label htmlFor='womensclothing' className={`${decodeURIComponent(category) === "women's clothing" ? 'font-bold' : ''} cursor-pointer`}>Women's Clothing</label>
+            <label htmlFor='womensclothing' className={`${decodeURIComponent(category) === "women's clothing" ? 'font-bold' : ''} cursor-pointer`}>Women&apos;s Clothing</label>
             <input type='radio' name='category' id='womensclothing' onChange={() => categoryHandler("women's clothing")} hidden />
           </div>
         </div>
@@ -126,5 +125,8 @@ const FilterModal = forwardRef(({ params }:FilterModalProps, ref) => {
     </div>
   );
 });
+
+// Add this line to give the component a display name
+FilterModal.displayName = 'FilterModal';
 
 export default FilterModal;

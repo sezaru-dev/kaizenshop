@@ -1,5 +1,11 @@
 import ProductByCategory from "./ProductsByCategory";
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
+
+async function fetchCategories() {
+  const response = await fetch('https://fakestoreapi.com/products/categories');
+  const data = await response.json();
+  return data;
+}
 
 // Function to create dynamic metadata based on params
 export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
@@ -10,8 +16,18 @@ export async function generateMetadata({ params }: { params: { category: string 
   };
 }
 
-const ShopCategory = ({ params }: { params: { category: string } }) => {
-  return <ProductByCategory params={params} />;
-};
+// Function to generate static params for dynamic route
+async function generateStaticParams() {
+  const categories = await fetchCategories();
 
-export default ShopCategory;
+  return categories.map((category: string) => ({
+    category,
+  }));
+}
+
+// Exporting the generateStaticParams function directly with the component
+export default function ShopCategory({ params }: { params: { category: string } }) {
+  return <ProductByCategory params={params} />;
+}
+
+export { generateStaticParams };

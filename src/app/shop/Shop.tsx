@@ -1,3 +1,6 @@
+
+
+// Ensuring this component runs only on the client side
 'use client';
 
 import SortDropdown from '@/components/SortDropdown';
@@ -21,13 +24,12 @@ const Shop: React.FC<Props> = ({ params }) => {
   const products = useFetchProductsStore((state) => state.products);
   const getProducts = useFetchProductsStore((state) => state.getProducts);
   const searchParams = useSearchParams();
-
   const sortBy = searchParams.get('sortBy') || '';
 
   useEffect(() => {
     getProducts();
   }, [getProducts]);
-  
+
   const sortedProducts = products?.slice().sort((a, b) => {
     switch (sortBy) {
       case 'name-asc':
@@ -70,10 +72,10 @@ const Shop: React.FC<Props> = ({ params }) => {
                   <Link href={`/shop/jewelery${sortBy ? `?sortBy=${sortBy}`:''}`}>Jewelery</Link>
                 </li>
                 <li>
-                  <Link href={`/shop/men's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Men's Clothing</Link>
+                  <Link href={`/shop/men's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Men&apos;s Clothing</Link>
                 </li>
                 <li>
-                  <Link href={`/shop/women's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Women's Clothing</Link>
+                  <Link href={`/shop/women's clothing${sortBy ? `?sortBy=${sortBy}`:''}`}>Women&apos;s Clothing</Link>
                 </li>
               </ul>
             </div>
@@ -84,17 +86,14 @@ const Shop: React.FC<Props> = ({ params }) => {
                 <Button className='text-lg hover:bg-gray-100 h-8 w-8 rounded-md flex md:hidden items-center justify-center flex-none' onClick={handleOpenModal}><BiSlider /></Button>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-20">
-                {sortedProducts
-                  ? sortedProducts.map((product) => (
-                      <ProductCard key={product.id} product={product}/>
-                    ))
-                  : null}
+                {sortedProducts ? sortedProducts.map((product) => (
+                  <ProductCard key={product.id} product={product}/>
+                )) : null}
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <FilterModal ref={childRef} params={params}/>
     </main>
   );
