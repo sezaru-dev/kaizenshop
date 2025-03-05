@@ -11,7 +11,7 @@ const CartPage = () => {
     <main>
       <section>
         <div className='container lg:max-w-[1280px] mx-auto px-6 '>
-          <h2 className='mt-6 text-[2.5rem] font-bold'>YOUR CART</h2>
+          <h2 className='mt-6 text-lg md:text-xl md:text-[2.5rem] font-bold'>YOUR CART</h2>
           {
             cart.length >0 ? 
               <div className='grid lg:grid-cols-12 gap-6 mt-6 min-h-[calc(100vh-12.4rem)]'>
@@ -24,7 +24,7 @@ const CartPage = () => {
                 </div>
                 <CartOrderSummary/>
               </div>
-            : <div className='text-center min-h-[calc(100vh-12.4rem)] max-w-md grid place-content-center mx-auto gap-6'>
+            : <div className='text-center min-h-[calc(100vh-10.5rem)] lg:min-h-[calc(100vh-11.5rem)] max-w-md grid place-content-center mx-auto gap-6'>
               <p className='text-lg text-gray-600'>Your shopping cart is currently empty. Browse our collection and add your favorite items to the cart.</p>
               <Link href='/shop' className='bg-orange-600 hover:bg-orange-500 px-6 py-2.5 text-white font-medium w-full rounded-lg'>Go to Shop</Link>
               </div>

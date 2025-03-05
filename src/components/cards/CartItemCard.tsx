@@ -19,14 +19,12 @@ const CartItemCard = ({ cartItem, index }: CartItemCardProps) => {
     removeFromCart(cartItem.productId);
   }, [removeFromCart, cartItem.productId]);
 
-  console.log(`Rendered ${selectedCartItem?.productName}`);
-
   return (
     <>
       {
         selectedCartItem ? 
-        <div className='flex ga font-medium text-gray-800p-4'>
-        <div className='w-[99px] lg:w-[124px] aspect-auto flex-none relative'>
+        <div className='flex text-gray-800p-4'>
+        <div className='w-[20%] lg:w-[124px] aspect-auto flex-none relative'>
           <Image
             src={selectedCartItem.productImage}
             alt="Product Image"
@@ -35,17 +33,22 @@ const CartItemCard = ({ cartItem, index }: CartItemCardProps) => {
             className="object-contain scale-[.8] group-hover:scale-[.9] transition-transform duration-200 ease-in-out"
           />
         </div>
-        <div className='w-full flex flex-col justify-between'>
-          <div className='flex items-start justify-between'>
-            <div className=''>
-              <h4 className='text-lg font-medium text-gray-800 mr-4'>{selectedCartItem.productName}</h4>
+        <div className='w-full flex flex-col justify-between gap-2.5'>
+          <div className='grid grid-cols-4'>
+
+            <div className='col-span-3'>
+              <h4 className='text-xs md:text-base font-medium text-gray-900 md:mr-4 truncate'>{selectedCartItem.productName}</h4>
             </div>
-            <button className='flex-none' onClick={handleRemove}>
-              <PiTrashFill color='#FF3333' className='text-2xl' />
-            </button>
+
+            <div className='col-span-1 grid place-content-end'>
+              <button className='' onClick={handleRemove}>
+                <PiTrashFill color='#FF3333' className='text-lg md:text-2xl' />
+              </button>
+            </div>
           </div>
-          <div className='flex items-center justify-between mt-6'>
-            <p className='text-sm text-gray-600'>{selectedCartItem.quantity} x ${selectedCartItem.productPrice}</p>
+
+          <div className='flex items-center justify-between md:mt-6'>
+            <p className='text-xs md:text-base text-gray-500'>{selectedCartItem.quantity} x ${selectedCartItem.productPrice}</p>
             <Counter className='w-min' buttonStyles='h-8 w-8' inputStyles='h-8' productId={selectedCartItem.productId} cartItemQuantity={selectedCartItem.quantity} />
           </div>
         </div>
