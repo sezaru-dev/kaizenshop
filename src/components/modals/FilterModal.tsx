@@ -1,49 +1,52 @@
 'use client';
 
-import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useState, useCallback, useMemo } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import Button from '../ui/Button';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-interface FilterModalProps  {
+interface FilterModalProps {
   params: { category: string };
-};
+}
 
 const FilterModal = forwardRef(({ params }: FilterModalProps, ref) => {
   const [isHidden, setIsHidden] = useState(true);
-  const [category, setCategory] = useState(params.category || 'all');
+  const categoryParam = useMemo(() => params.category, [params.category]);
+  const [category, setCategory] = useState(categoryParam);
   const [sort, setSort] = useState('');
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const sortBy = searchParams.get('sortBy') || '';
 
-  const categoryHandler = (categoryName: string) => {
+  const categoryHandler = useCallback((categoryName: string) => {
     setCategory(categoryName);
-  };
-  const sortHandler = (sortName: string) => {
+  }, []);
+  const sortHandler = useCallback((sortName: string) => {
     setSort(sortName);
-  };
+  }, []);
 
-  const hideModalAndApplyFilter = () => {
+  const hideModalAndApplyFilter = useCallback(() => {
     router.push(`/shop${category && `/${category}`}${sort ? `?sortBy=${sort}` : ''}`);
     setIsHidden(true);
-    document.body.classList.remove('no-scroll')
-  };
+    document.body.classList.remove('no-scroll');
+  }, [category, sort, router]);
 
-  const hideModal = () => {
+  const hideModal = useCallback(() => {
     setIsHidden(true);
-    document.body.classList.remove('no-scroll')
-  }
+    setCategory(categoryParam);
+    document.body.classList.remove('no-scroll');
+  }, [categoryParam]);
 
   useImperativeHandle(ref, () => ({
     isHidden,
     openModal: () => setIsHidden(false),
-  }));
+  }), [isHidden]);
 
   useEffect(() => {
     setSort(sortBy);
   }, [sortBy]);
+
+  
 
   return (
     <div className={`${isHidden && 'hidden'} md:hidden`}>
@@ -126,7 +129,6 @@ const FilterModal = forwardRef(({ params }: FilterModalProps, ref) => {
   );
 });
 
-// Add this line to give the component a display name
 FilterModal.displayName = 'FilterModal';
 
 export default FilterModal;

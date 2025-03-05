@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const ShopPage = () => {
-  const params = { category: 'all' };
+  const params = { category: '' };
   return <Shop params={params} />;
 };
 
