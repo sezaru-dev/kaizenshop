@@ -155,36 +155,32 @@ export default function Home() {
             <Image
               src={Electronics}
               alt="Electronics"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"/>
+              fill
+              className="rounded-lg object-cover"/>
             <p className="absolute text-xl font-bold">Electronics</p>
           </Link>
           <Link href={`/shop/jewelery`} className="lg:col-span-6 p-6 h-40 lg:h-64 relative hover:scale-[1.02] transition-transform duration-200 ease-in-out">
             <Image
               src={Jewelry}
               alt="Electronics"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"/>
+              fill
+              className="rounded-lg object-cover"/>
             <p className="absolute text-xl font-bold">Jewelry</p>
           </Link>
           <Link href={`/shop/men's clothing`} className="lg:col-span-6 p-6 h-40 lg:h-64 relative hover:scale-[1.02] transition-transform duration-200 ease-in-out">
             <Image
               src={MensClothing}
               alt="Electronics"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"/>
+              fill
+              className="rounded-lg object-cover"/>
             <p className="absolute text-xl font-bold">Men&apos;s Clothing</p>
           </Link>
           <Link href={`/shop/women's clothing`} className="lg:col-span-4 p-6 h-40 lg:h-64 relative hover:scale-[1.02] transition-transform duration-200 ease-in-out">
             <Image
               src={WomensClothing}
               alt="Electronics"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"/>
+              fill
+              className="rounded-lg object-cover"/>
             <p className="absolute text-xl font-bold">Women&apos;s Clothing</p>
           </Link>
 

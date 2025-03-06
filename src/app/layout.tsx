@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ToastContainer, Bounce } from 'react-toastify';
 import { Suspense } from "react";
-/* import Banner from "@/components/Banner";
+import SignUpModal from "@/components/SignUpModal";
 import LoginModal from "@/components/LoginModal";
-import SignUpModal from "@/components/SignUpModal"; */
+
 
 
 
@@ -39,8 +39,8 @@ export default function RootLayout({
         transition={Bounce}
         />
         {/* <Banner/> */}
-        {/* <LoginModal/> */}
-        {/* <SignUpModal/> */}
+        <LoginModal/>
+        <SignUpModal/>
         <Header/>
         <Suspense>
           {children}

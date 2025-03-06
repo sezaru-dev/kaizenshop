@@ -5,11 +5,14 @@ import { HiOutlineUserCircle, } from "react-icons/hi";
 import { LuShoppingCart } from "react-icons/lu";
 import Button from './ui/Button';
 import { useCartStore } from '@/store/cart-store';
+import { useModalStore } from '@/store/modal-store';
 
 
 
 const Header = () => {
   const cart = useCartStore((state) => state.cart);
+  const openLoginModal = useModalStore((state) => state.openLoginModal)
+  const openSignupModal = useModalStore((state) => state.openSignupModal)
   return (
     <header className='bg-gray-100'>
       <div className='container mx-auto lg:max-w-[1280px] p-6 flex items-center justify-between'>
@@ -48,12 +51,14 @@ const Header = () => {
 
           <ul className='hidden md:flex items-center justify-between gap-4 font-medium'>
             <li>
-              Login
+              <Button onClick={openLoginModal}>
+                Login
+              </Button>
             </li>
             <li>
-              <Link href='/'>
+              <Button onClick={openSignupModal}>
                 Sign Up
-              </Link>
+              </Button>
             </li>
           </ul>
         </nav>
