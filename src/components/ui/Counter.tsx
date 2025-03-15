@@ -1,6 +1,6 @@
 'use client';
 import React, { useCallback } from 'react';
-import Button from './Button';
+import Button from '../Button';
 import { HiOutlineMinusSm, HiOutlinePlusSm } from 'react-icons/hi';
 import { useCartStore } from '@/store/cart-store';
 

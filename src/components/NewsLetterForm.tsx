@@ -1,7 +1,7 @@
 'use client'
 import React, { FormEvent } from 'react'
 import { HiOutlineEnvelope } from "react-icons/hi2";
-import Button from './ui/Button';
+import Button from './Button';
 
 const NewsLetterForm = () => {
 
@@ -18,7 +18,7 @@ const NewsLetterForm = () => {
             <HiOutlineEnvelope size="1.5rem" className='absolute top-1/2 -translate-y-1/2 left-5 text-black/40'/>
             <input type="text" placeholder='Enter your email address' className='py-3 lg:py-3 w-full bg-white rounded-lg pl-14 pr-4' />
           </div>
-          <Button className='py-3 lg:py-3 px-3 w-full border-2 border-orange-600 hover:bg-orange-600/20 bg-orange-600/10 text-white rounded-lg font-bold text-sm lg:text-base text-nowrap'>Subscribe to Newsletter</Button>
+          <Button className='py-3 lg:py-3 px-3 w-full border-2 border-purple-600 hover:bg-purple-600/20 bg-purple-600/10 text-white rounded-lg font-bold text-sm lg:text-base text-nowrap'>Subscribe to Newsletter</Button>
         </form>
 
       </div>

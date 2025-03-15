@@ -1,6 +1,5 @@
 'use client'
-import Button from "@/components/ui/Button";
-import Rating from "@/components/ui/Rating";
+import Button from "@/components/Button";
 import Stat from "@/components/ui/Stat";
 import { useFetchProductsStore } from "@/store/fetch-products-store";
 import Image from "next/image";
@@ -11,13 +10,14 @@ import Jewelry from '@/public/jewelry.jpg'
 import MensClothing from '@/public/mens-clothing.jpg'
 import WomensClothing from '@/public/womens-clothing.jpg'
 import Testimony from "@/components/sections/Testimony";
-import { useCartStore } from "@/store/cart-store";
+import ProductCard from "@/components/ProductCard";
+import { useModalStore } from "@/store/modal-store";
 
 
 export default function Home() {
   const electronics = useFetchProductsStore((state) => state.electronics)
   const getElectronics = useFetchProductsStore((state) => state.getElectronics)
-  const AddToCart = useCartStore((state) => state.AddToCart);
+  const openLoginModal = useModalStore((state) => state.openLoginModal)
 
   useEffect(() => {
     getElectronics(4)
@@ -33,7 +33,7 @@ export default function Home() {
           <div>
             <h2 className="text-4xl lg:text-7xl font-extrabold lg:w-[40rem] text-white/90 text-center lg:text-left">Step into the Future with KaizenShop</h2>
             <h3 className="lg:text-xl lg:w-[32rem] text-white/80 mt-5 lg:mt-8 text-center lg:text-left">Find the Latest Innovations in Tech, Luxurious and Handcrafted Jewelry, and Fashion-Forward Clothing All in One Convenient Place</h3>  
-            <Button className="mt-6 lg:mt-8 py-2.5 lg:py-3 px-4 lg:px-12 bg-orange-600 rounded-lg font-bold text-white w-full lg:w-auto">
+            <Button onClick={openLoginModal} className="mt-6 lg:mt-8 py-2.5 lg:py-3 px-4 lg:px-12 bg-purple-600 rounded-lg font-bold text-white w-full lg:w-auto">
             Login to shop
             </Button>
           </div>
@@ -94,50 +94,7 @@ export default function Home() {
         {
           electronics? 
           electronics.map(product => (
-            <div  key={product.id} className="w-full p-4">
-                      <div className='group'>
-                        <div className="relative overflow-hidden rounded-lg w-full h-32 md:h-52">
-                          <div className='absolute top-0 left-0 z-10 opacity-0 group-hover:opacity-100 bg-black/20 w-full h-full grid place-content-center text-white font-bold'>
-                            <Button
-                              onClick={() =>
-                                AddToCart({
-                                  productId: Number(product?.id) || 0,
-                                  productName: product?.title || "Unknown Product",
-                                  productPrice: product?.price || 0,
-                                  productImage: product?.image || "",
-                                  quantity: 1,
-                                  total: product?.price ? product.price * 1 : 0,
-                                })
-                              }
-                             className=' px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm'>
-                              Add to cart
-                            </Button>
-                          </div>
-                          <Image
-                            src={product.image}
-                            alt="Product Image"
-                            fill
-                            priority
-                            className="object-contain scale-[.8] group-hover:scale-[.9] transition-transform duration-200 ease-in-out"
-                          />
-                        </div>
-                      </div>
-                      <div className="mt-2">
-                        <p className="uppercase text-xs text-gray-500 mb-1">{product.category}</p>
-                        <h4 className="text-gray-800 text-sm font-medium underline">
-                          <Link href={`/product-details/${product.id}`}>
-                          {product.title}
-                          </Link>
-                        </h4>
-                        <div className="flex items-center mt-2 gap-2">
-                          <Rating rate={product.rating.rate}/>
-                          <p className="text-gray-500 text-sm">{product.rating.count} ratings</p>
-                        </div>
-                        <div className="inline-flex justify-between w-full mt-2">
-                          <h5 className="font-bold text-xl text-gray-900">${product.price}</h5>
-                        </div>
-                      </div>
-                    </div>
+            <ProductCard key={product.id} product={product}/>
           )): ''
         } 
 

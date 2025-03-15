@@ -2,7 +2,7 @@
 
 import React, { forwardRef, useEffect, useImperativeHandle, useState, useCallback, useMemo } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
-import Button from '../ui/Button';
+import Button from '../Button';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 interface FilterModalProps {

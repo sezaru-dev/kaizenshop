@@ -1,18 +1,13 @@
 'use client'
 import Link from 'next/link'
 import React from 'react'
-import { HiOutlineUserCircle, } from "react-icons/hi";
 import { LuShoppingCart } from "react-icons/lu";
-import Button from './ui/Button';
 import { useCartStore } from '@/store/cart-store';
-import { useModalStore } from '@/store/modal-store';
-
-
+import { UserDropdownMenu } from './UserDropdownMenu';
 
 const Header = () => {
   const cart = useCartStore((state) => state.cart);
-  const openLoginModal = useModalStore((state) => state.openLoginModal)
-  const openSignupModal = useModalStore((state) => state.openSignupModal)
+
   return (
     <header className='bg-gray-100'>
       <div className='container mx-auto lg:max-w-[1280px] p-6 flex items-center justify-between'>
@@ -24,8 +19,6 @@ const Header = () => {
             <p className='text-sm md:text-base font-medium'>Shop</p>
           </Link>
         </div>
-
-        
 
         <nav className="flex gap-4">
           <ul className='flex items-center justify-between gap-4'>
@@ -42,28 +35,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Button className='hidden'>
-                <HiOutlineUserCircle size='1.6rem'/>
-              </Button>
-            </li>
-          </ul>
-
-
-          <ul className='hidden md:flex items-center justify-between gap-4 font-medium'>
-            <li>
-              <Button onClick={openLoginModal}>
-                Login
-              </Button>
-            </li>
-            <li>
-              <Button onClick={openSignupModal}>
-                Sign Up
-              </Button>
+              <UserDropdownMenu/>
             </li>
           </ul>
         </nav>
       </div>
-
     </header>
   )
 }

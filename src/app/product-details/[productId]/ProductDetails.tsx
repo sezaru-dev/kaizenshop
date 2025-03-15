@@ -3,12 +3,12 @@
 import { ProductType } from "@/store/fetch-products-store";
 import Image from "next/image";
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { CartInterface, useCartStore } from "@/store/cart-store";
+import { useCartStore } from "@/store/cart-store";
 import Loader from "@/components/ui/Loader";
-import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 // Lazy load components
-const Button = lazy(() => import('@/components/ui/Button'));
+const Button = lazy(() => import('@/components/Button'));
 const Counter = lazy(() => import('@/components/ui/Counter'));
 const Rating = lazy(() => import('@/components/ui/Rating'));
 
@@ -23,7 +23,6 @@ const ProductDetails = ({ params }: Props) => {
   const AddToCart = useCartStore((state) => state.AddToCart);
   const [product, setProduct] = useState<ProductType>();
   const [count, setCount] = useState<number>(1);
-  const router = useRouter()
 
   const productId = parseInt(params.productId);
 
@@ -41,10 +40,31 @@ const ProductDetails = ({ params }: Props) => {
     FetchProductDetails(productId);
   }, [productId]);
 
-  const handleAddToCart = (item:CartInterface) => {
+/*   const handleAddToCart = (item:CartInterface) => {
     AddToCart(item);
     router.back();
-  };
+  }; */
+
+  const addToCartHandler = (product:ProductType) => {
+    AddToCart({
+      productId: Number(product?.id) || 0,
+      productName: product?.title || 'Unknown Product',
+      productPrice: product?.price || 0,
+      productImage: product?.image || '',
+      quantity: count,
+      total: product?.price ? product.price * 1 : 0,
+    })
+    toast.custom(() => (
+      <div className='w-96 p-2'>
+        <h1>Added to cart</h1>
+        <div className='flex items-center gap-4 text-gray-500'>
+          <small className='max-w-[80%] truncate'>{product?.title}</small>
+          <small>x{count}</small>
+        </div>
+      </div>
+    ));
+  
+  }
 
   console.log(cart);
 
@@ -83,18 +103,8 @@ const ProductDetails = ({ params }: Props) => {
                 <Suspense fallback={<div>Loading Button...</div>}>
                   <Button
                     type="button"
-                    className="py-2.5 px-6 text-center w-full bg-orange-600 text-white font-bold rounded-lg"
-                    onClick={() =>
-                      handleAddToCart({
-                        productId: Number(product?.id) || 0,
-                        productName: product?.title || "Unknown Product",
-                        productPrice: product?.price || 0,
-                        productImage: product?.image || "",
-                        quantity: count,
-                        total: product?.price ? product.price * count : 0,
-                      })
-                    }
-                  >
+                    className="py-2.5 px-6 text-center w-full bg-purple-600 text-white font-bold rounded-lg"
+                    onClick={() => addToCartHandler(product)}>
                     Add to Cart
                   </Button>
                 </Suspense>

@@ -3,19 +3,27 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import PromoIcon from '@/public/promoIcon.svg'
 import { useCartStore } from '@/store/cart-store'
-import Button from './ui/Button'
+import Button from './Button'
+import { useRouter } from "next/navigation"
 
 const CartOrderSummary = () => {
+  const router = useRouter();
   const cart = useCartStore((state) => state.cart)
+  const subtotal = useCartStore((state) => state.subtotal)
+  const total = useCartStore((state) => state.total)
   const [discount] = useState({
     isDiscount: false,
     value: 15
   })
-  const subtotal : number = Number(cart.reduce((acc, item) => acc + item.total, 0).toFixed(2))
+
   const discountedPrice:number = discount.isDiscount ? Number((cart.reduce((acc, item) => acc + item.total, 0) * (discount.value/100)).toFixed(2)) : 0
   const shippineFee:number = 15
-  const total:number = Number(((subtotal - discountedPrice) + shippineFee).toFixed(2))
   
+  const handleNavigate = () => {
+    // Programmatically navigate to the '/checkout' page
+    router.push("/checkout");
+  };
+
   return (
     <div className='lg:col-span-5 border border-gray-300 px-6 py-5 rounded-xl h-min'>
       <h3 className='text-xl md:text-2xl font-bold text-gray-900'>Order Summary</h3>
@@ -35,7 +43,7 @@ const CartOrderSummary = () => {
         <Button className='py-3 px-4 md:px-6 w-[30%] text-center bg-orange-600 text-white font-medium rounded-lg  '>Apply</Button>
       </div>
 
-      <Button className='py-3 px-6 mt-6 w-full text-center bg-orange-600 text-white font-medium rounded-lg'>Checkout</Button>
+      <Button onClick={handleNavigate} className='py-3 px-6 mt-6 w-full text-center bg-orange-600 text-white font-medium rounded-lg'>Checkout</Button>
     </div>
   )
 }
