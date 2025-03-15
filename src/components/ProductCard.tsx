@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Rating from './ui/Rating';
 import { ProductType } from '@/store/fetch-products-store';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import { LuShoppingCart } from "react-icons/lu";
 import TooltipWrapper from './TooltipWrapper';
 import { toast } from 'sonner';

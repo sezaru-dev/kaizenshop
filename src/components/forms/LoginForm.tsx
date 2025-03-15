@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useModalStore } from "@/store/modal-store"
 import { useUserStore } from "@/store/user-store"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 
 const formSchema = z.object({
   email: z
