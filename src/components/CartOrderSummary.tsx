@@ -3,8 +3,8 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import PromoIcon from '@/public/promoIcon.svg'
 import { useCartStore } from '@/store/cart-store'
-import Button from './MyButton'
 import { useRouter } from "next/navigation"
+import { Button } from './ui/button'
 
 const CartOrderSummary = () => {
   const router = useRouter();

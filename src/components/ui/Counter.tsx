@@ -1,8 +1,8 @@
 'use client';
 import React, { useCallback } from 'react';
-import Button from '../MyButton';
 import { HiOutlineMinusSm, HiOutlinePlusSm } from 'react-icons/hi';
 import { useCartStore } from '@/store/cart-store';
+import { Button } from './button';
 
 interface CounterProps {
   className?: string;

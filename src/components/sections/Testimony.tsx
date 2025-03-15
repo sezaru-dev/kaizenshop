@@ -2,7 +2,7 @@
 import { Testimonies } from '@/constant'
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
 import React, { useRef } from 'react'
-import Button from '../MyButton';
+import { Button } from '../ui/button';
 
 const Testimony = () => {
   const sliderRef = useRef<HTMLDivElement>(null)

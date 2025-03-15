@@ -1,5 +1,5 @@
 'use client'
-import Button from "@/components/MyButton";
+
 import Stat from "@/components/ui/Stat";
 import { useFetchProductsStore } from "@/store/fetch-products-store";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import WomensClothing from '@/public/womens-clothing.jpg'
 import Testimony from "@/components/sections/Testimony";
 import ProductCard from "@/components/ProductCard";
 import { useModalStore } from "@/store/modal-store";
+import { Button } from "@/components/ui/button";
 
 
 export default function Home() {

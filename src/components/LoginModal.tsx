@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
-import Button from './MyButton'
 import { useModalStore } from '@/store/modal-store'
 import { LoginForm } from './forms/LoginForm'
+import { Button } from './ui/button'
 
 const LoginModal = () => {
   const isLoginModalOpen = useModalStore((state) => state.isLoginModalOpen)

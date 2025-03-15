@@ -2,8 +2,8 @@
 
 import React, { forwardRef, useEffect, useImperativeHandle, useState, useCallback, useMemo } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
-import Button from '../MyButton';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Button } from '../ui/button';
 
 interface FilterModalProps {
   params: { category: string };

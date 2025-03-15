@@ -1,7 +1,6 @@
 'use client';
 
 import SortDropdown from '@/components/SortDropdown';
-import Button from '@/components/MyButton';
 import { useFetchProductsStore } from '@/store/fetch-products-store';
 import Link from 'next/link';
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
@@ -9,6 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import { BiSlider } from "react-icons/bi";
 import FilterModal from '@/components/modals/FilterModal';
 import ProductCard from '@/components/ProductCard';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   params: {
