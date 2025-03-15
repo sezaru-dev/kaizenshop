@@ -54,6 +54,10 @@ export function SignupForm() {
     console.log(values)
   }
 
+  const showHidePwdHandler = () => {
+    setIsHidden(!isHidden)
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -78,8 +82,7 @@ export function SignupForm() {
               <FormLabel>Password</FormLabel>
               <div className="relative">
                 <button type='button'
-                  onMouseDown={() => setIsHidden(false)}
-                  onMouseUp={() => setIsHidden(true)}
+                  onClick={showHidePwdHandler}
                   className='absolute h-12 w-12 top-1/2 -translate-y-1/2 right-0 text-gray-600 grid place-content-center rounded-r-lg' tabIndex={-1}>{isHidden? <FaEye />:<FaEyeSlash />}</button>
                 <FormControl>
                   <Input

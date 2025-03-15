@@ -104,7 +104,7 @@ const ProductDetails = ({ params }: Props) => {
                 <Suspense fallback={<div>Loading Button...</div>}>
                   <Button
                     type="button"
-                    className="py-2.5 px-6 text-center w-full bg-purple-600 text-white font-bold rounded-lg"
+                    className="h-10 text-center w-full bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg"
                     onClick={() => addToCartHandler(product)}>
                     Add to Cart
                   </Button>

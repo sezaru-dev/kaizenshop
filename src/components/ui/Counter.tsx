@@ -70,11 +70,11 @@ const Counter = ({ className, buttonStyles, inputStyles, productId, cartItemQuan
     <div className={`${className} flex items-center justify-center`}>
       {
         productId && cartItemQuantity ? 
-        <Button onClick={() => decrementQuantity(productId, cartItemQuantity)} className={`${buttonStyles} bg-gray-100 rounded-l-lg flex items-center justify-center flex-none`}>
+        <Button onClick={() => decrementQuantity(productId, cartItemQuantity)} className={`${buttonStyles} bg-gray-100 hover:bg-gray-200 rounded-l-lg flex items-center justify-center flex-none text-gray-900 shadow-none`}>
           <HiOutlineMinusSm />
         </Button>
 
-        :<Button onClick={decrementCount} className={`${buttonStyles} bg-gray-100 rounded-l-lg flex items-center justify-center flex-none`}>
+        :<Button onClick={decrementCount} className={`${buttonStyles} bg-gray-100 hover:bg-gray-200 rounded-l-lg flex items-center justify-center flex-none text-gray-900 shadow-none`}>
           <HiOutlineMinusSm />
         </Button>
         
@@ -91,11 +91,11 @@ const Counter = ({ className, buttonStyles, inputStyles, productId, cartItemQuan
       />
         {
         productId && cartItemQuantity ? 
-          <Button onClick={() => incrementQuantity(productId, cartItemQuantity + 1)} className={`${buttonStyles} bg-gray-100 rounded-r-lg flex items-center justify-center flex-none`}>
+          <Button onClick={() => incrementQuantity(productId, cartItemQuantity + 1)} className={`${buttonStyles} bg-gray-100 hover:bg-gray-200 rounded-r-lg flex items-center justify-center flex-none text-gray-900 shadow-none`}>
             <HiOutlinePlusSm />
           </Button>
           :
-          <Button onClick={incrementCount} className={`${buttonStyles} bg-gray-100 rounded-r-lg flex items-center justify-center flex-none`}>
+          <Button onClick={incrementCount} className={`${buttonStyles} bg-gray-100 hover:bg-gray-200 rounded-r-lg flex items-center justify-center flex-none text-gray-900 shadow-none`}>
             <HiOutlinePlusSm />
           </Button>
         }

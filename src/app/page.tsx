@@ -34,27 +34,27 @@ export default function Home() {
           <div>
             <h2 className="text-4xl lg:text-7xl font-extrabold lg:w-[40rem] text-white/90 text-center lg:text-left">Step into the Future with KaizenShop</h2>
             <h3 className="lg:text-xl lg:w-[32rem] text-white/80 mt-5 lg:mt-8 text-center lg:text-left">Find the Latest Innovations in Tech, Luxurious and Handcrafted Jewelry, and Fashion-Forward Clothing All in One Convenient Place</h3>  
-            <Button onClick={openLoginModal} className="mt-6 lg:mt-8 py-2.5 lg:py-3 px-4 lg:px-12 bg-purple-600 rounded-lg font-bold text-white w-full lg:w-auto">
+            <Button onClick={openLoginModal} className="mt-6 lg:mt-8 h-12 bg-purple-600 hover:bg-purple-500 lg:px-10 rounded-lg font-bold text-white w-full lg:w-auto text-base">
             Login to shop
             </Button>
           </div>
 
-          <div className="flex lg:flex-col justify-around lg:justify-normal flex-wrap gap-6 lg:gap-16 mt-5 lg:mt-12">
+          <div className="w-full lg:w-auto flex lg:flex-col justify-evenly lg:justify-normal flex-wrap gap-6 lg:gap-16 mt-5 lg:mt-12">
             <Stat
               title="High Quality Products"
               value="1,000+"
-              titleStyles="text-nowrap text-sm text-base text-white/70 mt-2"
-              valueStyles="font-medium text-2xl text-[2.5rem] text-white"/>
+              titleStyles="text-nowrap text-sm text-base text-white/70 mt-0 md:mt-2"
+              valueStyles="font-medium text-[1.6rem] md:text-[2.5rem] text-white"/>
             <Stat
               title="Satisfied Customers"
               value="5,000+"
-              titleStyles="text-nowrap text-sm text-base text-white/70 mt-2"
-              valueStyles="font-medium text-2xl text-[2.5rem] text-white"/>
+              titleStyles="text-nowrap text-sm text-base text-white/70 mt-0 md:mt-2"
+              valueStyles="font-medium text-[1.6rem] md:text-[2.5rem] text-white"/>
             <Stat
               title="Customer Support"
               value="24/7"
-              titleStyles="text-nowrap text-sm text-base text-white/70 mt-2"
-              valueStyles="font-medium text-2xl text-[2.5rem] text-white"/>
+              titleStyles="text-nowrap text-sm text-base text-white/70 mt-0 md:mt-2"
+              valueStyles="font-medium text-[1.6rem] md:text-[2.5rem] text-white"/>
           </div>
         </div>
       </section>

@@ -40,10 +40,10 @@ const CartOrderSummary = () => {
           <Image src={PromoIcon} alt='promo icon' className='absolute top-1/2 left-4 -translate-y-1/2'/>
           <input type="text" placeholder='Add discount code'  className='w-full py-3 pl-14 outline-none border border-gray-300 rounded-lg placeholder:text-xs text-sm'/>
         </div>
-        <Button className='py-3 px-4 md:px-6 w-[30%] text-center bg-orange-600 text-white font-medium rounded-lg  '>Apply</Button>
+        <Button className='h-12 md:px-6 w-[30%] text-center bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg  '>Apply</Button>
       </div>
 
-      <Button onClick={handleNavigate} className='py-3 px-6 mt-6 w-full text-center bg-orange-600 text-white font-medium rounded-lg'>Checkout</Button>
+      <Button onClick={handleNavigate} className='h-12 mt-6 w-full text-center bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg'>Checkout</Button>
     </div>
   )
 }

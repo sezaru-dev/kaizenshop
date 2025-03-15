@@ -55,7 +55,7 @@ const FilterModal = forwardRef(({ params }: FilterModalProps, ref) => {
         <div className='flex items-center justify-between mb-4'>
           <h5 className='font-medium text-gray-800'>Filter</h5>
           <Button
-            className='text-lg hover:bg-gray-100 h-8 w-8 rounded-md flex items-center justify-center flex-none text-gray-800'
+            className='text-lg bg-transparent hover:bg-gray-100 h-8 w-8 rounded-md flex items-center justify-center flex-none text-gray-800 shadow-none'
             onClick={hideModal}
           >
             <HiOutlineX />
@@ -121,7 +121,7 @@ const FilterModal = forwardRef(({ params }: FilterModalProps, ref) => {
             </div>
           </div>
         </div>
-        <Button onClick={hideModalAndApplyFilter} className='w-full bg-orange-500 text-center py-2 text-white font-medium rounded-sm'>
+        <Button onClick={hideModalAndApplyFilter} className='w-full bg-purple-500 hover:bg-purple-400 shadow-none text-center py-2 text-white font-medium rounded-sm'>
           Apply Filter
         </Button>
       </div>
