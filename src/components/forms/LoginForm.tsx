@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { toast } from "sonner"
-import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -16,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useModalStore } from "@/store/modal-store"
 import { useUserStore } from "@/store/user-store"
+import { Button } from "../ui/button"
 
 const formSchema = z.object({
   email: z

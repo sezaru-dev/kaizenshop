@@ -6,9 +6,10 @@ import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { useCartStore } from "@/store/cart-store";
 import Loader from "@/components/ui/Loader";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 // Lazy load components
-const Button = lazy(() => import('@/components/Button'));
+
 const Counter = lazy(() => import('@/components/ui/Counter'));
 const Rating = lazy(() => import('@/components/ui/Rating'));
 

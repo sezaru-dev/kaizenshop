@@ -8,7 +8,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({children, type, onClick, className}:ButtonProps) => {
+const MyButton = ({children, type, onClick, className}:ButtonProps) => {
   return (
     <button
       type={type}
@@ -19,4 +19,4 @@ const Button = ({children, type, onClick, className}:ButtonProps) => {
   )
 }
 
-export default Button
+export default MyButton

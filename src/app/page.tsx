@@ -1,5 +1,5 @@
 'use client'
-import Button from "@/components/Button";
+import Button from "@/components/MyButton";
 import Stat from "@/components/ui/Stat";
 import { useFetchProductsStore } from "@/store/fetch-products-store";
 import Image from "next/image";

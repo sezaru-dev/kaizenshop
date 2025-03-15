@@ -4,7 +4,7 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
+
 import {
   Form,
   FormControl,
@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "../ui/checkbox"
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import { Button } from "../ui/button"
 
 const formSchema = z.object({
   username: z

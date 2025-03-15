@@ -1,7 +1,7 @@
 'use client';
 
 import SortDropdown from '@/components/SortDropdown';
-import Button from '@/components/Button';
+import Button from '@/components/MyButton';
 import { useFetchProductsStore } from '@/store/fetch-products-store';
 import Link from 'next/link';
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';

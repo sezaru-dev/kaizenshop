@@ -1,7 +1,7 @@
 'use client'
 import React, { FormEvent } from 'react'
 import { HiOutlineEnvelope } from "react-icons/hi2";
-import Button from './Button';
+import Button from './MyButton';
 
 const NewsLetterForm = () => {
 

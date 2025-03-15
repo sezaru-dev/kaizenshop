@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Button from './Button';
+import Button from './MyButton';
 import { useCartStore } from '@/store/cart-store';
 
 const CheckoutOrderSummary = () => {
