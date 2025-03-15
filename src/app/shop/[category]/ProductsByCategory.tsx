@@ -87,7 +87,7 @@ const Shop: React.FC<Props> = ({ params }) => {
               <div className="flex justify-between items-center py-6 md:py-0">
                 <h3 className="text-gray-800 text-xl lg:text-3xl font-bold capitalize">{decodeURIComponent(category)}</h3>
                 <SortDropdown className="hidden md:flex" />
-                <Button className="text-lg hover:bg-gray-100 h-8 w-8 rounded-md flex md:hidden items-center justify-center flex-none" onClick={handleOpenModal}><BiSlider /></Button>
+                <Button className="text-lg bg-transparent hover:bg-gray-100 text-gray-900 h-8 w-8 rounded-md flex md:hidden items-center justify-center flex-none shadow-none" onClick={handleOpenModal}><BiSlider /></Button>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-20">
                 {sortedProducts ? sortedProducts.map((product) => (

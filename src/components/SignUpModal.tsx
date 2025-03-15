@@ -27,7 +27,7 @@ const SignUpModal = () => {
             </h1>
             <SignupForm/>
             <p className="text-sm font-light text-gray-500 mt-6">
-                Don’t have an account yet? <Button type='button' variant='link' onClick={openLoginModal} className="font-medium text-purple-600 hover:underline">Sign in</Button>
+                Don’t have an account yet? <Button type='button' variant='link' onClick={openLoginModal} className="font-medium text-purple-600 hover:underline px-0 ml-1">Sign in</Button>
             </p>
 
           </div>
